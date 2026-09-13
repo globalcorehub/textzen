@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TextZen Studio - Webエンジニア向け 高速オンライン開発ツール集</title>
-  <meta name="description" content="日々の開発業務を加速するモダンなオンラインツール集。サーバー送信なし、完全無料・安全・快適に利用可能です。">
+  <title>TextZen Studio - 高機能テキスト整形 & Markdown スタジオ</title>
+  <meta name="description" content="文章の校正・文字数カウント・Diff比較・Markdown編集を瞬時に実行。外部送信ゼロで機密文書も安心。">
   <link rel="canonical" href="https://textzen.globalcorehub.com/ja/">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://textzen.globalcorehub.com/sitemap.xml">
 
   <!-- Dynamic Zero-Latency SVG Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%2310b981'/><text y='70' x='18' font-size='65' font-family='monospace' font-weight='bold' fill='%230c0e14'>&gt;_</text></svg>">
@@ -13,6 +14,7 @@
   <!-- International SEO hreflang tags (7 Languages) -->
   <link rel="alternate" hreflang="en" href="https://textzen.globalcorehub.com/" />
   <link rel="alternate" hreflang="zh-CN" href="https://textzen.globalcorehub.com/zh" />
+  <link rel="alternate" hreflang="zh" href="https://textzen.globalcorehub.com/zh" />
   <link rel="alternate" hreflang="es" href="https://textzen.globalcorehub.com/es" />
   <link rel="alternate" hreflang="pt" href="https://textzen.globalcorehub.com/pt" />
   <link rel="alternate" hreflang="de" href="https://textzen.globalcorehub.com/de" />
@@ -23,27 +25,32 @@
   <!-- Open Graph & Social Cards -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://textzen.globalcorehub.com/ja/">
-  <meta property="og:title" content="TextZen Studio - Webエンジニア向け 高速オンライン開発ツール集">
-  <meta property="og:description" content="日々の開発業務を加速するモダンなオンラインツール集。サーバー送信なし、完全無料・安全・快適に利用可能です。">
+  <meta property="og:title" content="TextZen Studio - 高機能テキスト整形 & Markdown スタジオ">
+  <meta property="og:description" content="文章の校正・文字数カウント・Diff比較・Markdown編集を瞬時に実行。外部送信ゼロで機密文書も安心。">
   <meta property="og:site_name" content="TextZen Studio">
-  <meta property="og:locale" content="ja">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:image" content="https://textzen.globalcorehub.com/og-image.svg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="TextZen Studio">
 
   <!-- Twitter Social Cards -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="TextZen Studio - Webエンジニア向け 高速オンライン開発ツール集">
-  <meta name="twitter:description" content="日々の開発業務を加速するモダンなオンラインツール集。サーバー送信なし、完全無料・安全・快適に利用可能です。">
+  <meta name="twitter:title" content="TextZen Studio - 高機能テキスト整形 & Markdown スタジオ">
+  <meta name="twitter:description" content="文章の校正・文字数カウント・Diff比較・Markdown編集を瞬時に実行。外部送信ゼロで機密文書も安心。">
+  <meta name="twitter:image" content="https://textzen.globalcorehub.com/og-image.svg">
 
   <!-- Multi-Theme Typography Imports (JetBrains Mono, Plus Jakarta Sans, Space Grotesk) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  
 
   <!-- Immediate Zero-FOUC Theme Initializer -->
   <script>
     (function() {
       try {
-        var t = localStorage.getItem('agy_theme') || 'midnight_purple';
+        var t = localStorage.getItem('agy_theme') || 'swiss_minimal';
         document.documentElement.setAttribute('data-theme', t);
         if (t === 'swiss_minimal') {
           document.documentElement.classList.remove('dark');
@@ -62,7 +69,7 @@
       theme: {
         extend: {
           colors: {
-            brand: '#c084fc'
+            brand: '#2563eb'
           }
         }
       }
@@ -73,8 +80,9 @@
   <style>
     body { font-family: 'Plus Jakarta Sans', sans-serif; }
     
-        .purple-glow { text-shadow: 0 0 10px rgba(192,132,252,0.6); }
-        .purple-box { box-shadow: 0 0 15px rgba(192,132,252,0.2); }
+        body { letter-spacing: -0.015em; }
+        .glass-panel { backdrop-filter: blur(16px); background: rgba(255,255,255,0.7); }
+        .dark .glass-panel { background: rgba(15,23,42,0.7); }
         
 
     /* Dynamic Multi-Theme Overrides */
@@ -162,15 +170,30 @@
     }
   </style>
 
+  <!-- Structured Data JSON-LD (WebSite & SearchAction) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "TextZen Studio",
+    "url": "https://textzen.globalcorehub.com/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://textzen.globalcorehub.com/?q={search_term_string}#tool-search",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
   <!-- Structured Data JSON-LD (WebApplication) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebApplication",
-    "name": "TextZen Studio - Webエンジニア向け 高速オンライン開発ツール集",
+    "name": "TextZen Studio - 高機能テキスト整形 & Markdown スタジオ",
     "url": "https://textzen.globalcorehub.com/ja/",
-    "description": "日々の開発業務を加速するモダンなオンラインツール集。サーバー送信なし、完全無料・安全・快適に利用可能です。",
-    "applicationCategory": "UtilitiesApplication",
+    "description": "文章の校正・文字数カウント・Diff比較・Markdown編集を瞬時に実行。外部送信ゼロで機密文書も安心。",
+    "applicationCategory": "TextEditor",
     "operatingSystem": "All",
     "offers": {
       "@type": "Offer",
@@ -186,20 +209,20 @@
         <script>
         window.showToast = function(msg) {
             const toast = document.createElement('div');
-            toast.className = 'fixed bottom-6 right-6 z-50 bg-[#160e2b] text-[#c084fc] border border-[#c084fc] font-mono text-xs px-4 py-2 rounded-lg shadow-[0_0_15px_rgba(192,132,252,0.3)] flex items-center space-x-2';
-            toast.innerHTML = '<span>✦</span><span>' + msg + '</span>';
+            toast.className = 'fixed bottom-6 right-6 z-50 bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-sm px-5 py-3 rounded-xl shadow-xl font-medium transition-all duration-300 transform translate-y-0';
+            toast.textContent = msg;
             document.body.appendChild(toast);
-            setTimeout(() => toast.remove(), 2500);
+            setTimeout(() => { toast.classList.add('opacity-0', 'translate-y-2'); setTimeout(() => toast.remove(), 300); }, 2200);
         };
         </script>
         
 </head>
-<body class="bg-[#0b0716] text-[#e9d5ff] min-h-screen flex flex-col transition-colors duration-200">
+<body class="bg-[#fafaf9] dark:bg-[#0f172a] text-[#1c1917] dark:text-[#f8fafc] min-h-screen flex flex-col transition-colors duration-200">
 
   
 
   <!-- Header Navigation (Responsive Desktop & Mobile) -->
-  <header class="sticky top-0 z-50 bg-[#160e2b]/90 backdrop-blur-xl border-b border-[#3b1d68]">
+  <header class="sticky top-0 z-50 bg-white/80 dark:bg-[#0f172a]/80 backdrop-blur-lg border-b border-[#e7e5e4] dark:border-[#334155]">
     <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       
       <!-- Brand & Terminal Indicator -->
@@ -207,7 +230,7 @@
         
 
         <a href="/ja/" class="flex items-center space-x-2.5 sm:space-x-3 group">
-          <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-lg flex items-center justify-center font-black text-base sm:text-lg bg-[#c084fc] hover:bg-[#a855f7] text-[#0b0716] font-extrabold shadow-[0_0_20px_rgba(192,132,252,0.4)]">
+          <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-lg flex items-center justify-center font-black text-base sm:text-lg bg-[#0f172a] hover:bg-[#334155] dark:bg-[#2563eb] dark:hover:bg-[#1d4ed8] text-white font-semibold">
             T
           </div>
           <span class="text-base sm:text-lg font-extrabold tracking-tight truncate max-w-[150px] sm:max-w-none">
@@ -230,7 +253,7 @@
           </button>
 
           <!-- Dropdown Panel (Categorized & Compact) -->
-          <div id="tools-dropdown-panel" class="hidden absolute left-0 mt-1.5 w-72 sm:w-80 rounded-2xl bg-[#160e2b] border border-[#3b1d68] hover:border-[#c084fc] shadow-[0_4px_25px_rgba(192,132,252,0.15)] shadow-2xl z-50 p-2 font-mono text-xs backdrop-blur-xl">
+          <div id="tools-dropdown-panel" class="hidden absolute left-0 mt-1.5 w-72 sm:w-80 rounded-2xl bg-white dark:bg-[#1e293b] border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] shadow-[0_2px_12px_rgba(0,0,0,0.04)] dark:shadow-none shadow-2xl z-50 p-2 font-mono text-xs backdrop-blur-xl">
             <div class="flex items-center justify-between px-2.5 py-1 text-[10px] uppercase tracking-wider opacity-50 border-b border-white/10 mb-1">
               <span>開発者向け便利ツール索引</span>
               <span>6 全ツール一覧</span>
@@ -287,7 +310,7 @@
               
             </div>
             <div class="mt-1.5 pt-1.5 border-t border-white/10 px-2 flex items-center justify-between">
-              <a href="/ja/#tools-grid" class="text-[11px] font-bold hover:underline flex items-center space-x-1" style="color: #c084fc">
+              <a href="/ja/#tools-grid" class="text-[11px] font-bold hover:underline flex items-center space-x-1" style="color: #2563eb">
                 <span>すべてのツールを見る</span>
                 <span>&rarr;</span>
               </a>
@@ -307,24 +330,24 @@
       <!-- Action Items & Language Selector & Quick Search & Mobile Hamburger -->
       <div class="flex items-center space-x-2 sm:space-x-3">
         <!-- Quick Search Trigger in Header -->
-        <button id="global-search-btn" type="button" class="flex items-center space-x-1.5 px-2.5 py-1.5 rounded-lg border border-[#3b1d68] hover:border-[#c084fc] bg-black/15 hover:bg-black/30 text-xs font-mono opacity-80 hover:opacity-100 transition" title="ツール名・用途・拡張子で瞬時に絞り込み... (/ キーで検索)">
+        <button id="global-search-btn" type="button" class="flex items-center space-x-1.5 px-2.5 py-1.5 rounded-lg border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] bg-black/15 hover:bg-black/30 text-xs font-mono opacity-80 hover:opacity-100 transition" title="ツール名・用途・拡張子で瞬時に絞り込み... (/ キーで検索)">
           <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
           </svg>
           <span class="hidden sm:inline opacity-70">検索</span>
-          <kbd class="hidden sm:inline text-[9px] px-1 py-0.5 rounded border border-[#3b1d68] hover:border-[#c084fc] opacity-50 bg-black/20 font-mono">Ctrl+K</kbd>
+          <kbd class="hidden sm:inline text-[9px] px-1 py-0.5 rounded border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] opacity-50 bg-black/20 font-mono">Ctrl+K</kbd>
         </button>
 
         <!-- Interactive Multi-Theme Selector Dropdown -->
         <div class="relative inline-block text-left" id="theme-selector-container">
-          <button id="theme-toggle-btn" type="button" class="inline-flex items-center space-x-1.5 px-2.5 py-1.5 rounded-lg text-xs font-mono border border-[#3b1d68] hover:border-[#c084fc] hover:opacity-90 transition bg-black/20" title="テーマスタイル">
+          <button id="theme-toggle-btn" type="button" class="inline-flex items-center space-x-1.5 px-2.5 py-1.5 rounded-lg text-xs font-mono border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] hover:opacity-90 transition bg-black/20" title="テーマスタイル">
             <span id="theme-current-icon" class="text-sm leading-none">🖤</span>
             <span id="theme-current-name" class="hidden xl:inline text-xs font-medium">黒 (ターミナル)</span>
             <svg class="w-3 h-3 opacity-60 ml-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
           </button>
-          <div id="theme-dropdown-menu" class="hidden absolute right-0 mt-2 w-48 rounded-xl bg-[#160e2b] border border-[#3b1d68] hover:border-[#c084fc] shadow-[0_4px_25px_rgba(192,132,252,0.15)] z-50 py-1.5 font-mono text-xs shadow-2xl backdrop-blur-xl">
+          <div id="theme-dropdown-menu" class="hidden absolute right-0 mt-2 w-48 rounded-xl bg-white dark:bg-[#1e293b] border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] shadow-[0_2px_12px_rgba(0,0,0,0.04)] dark:shadow-none z-50 py-1.5 font-mono text-xs shadow-2xl backdrop-blur-xl">
             <div class="px-3 py-1 text-[10px] uppercase tracking-wider opacity-50 border-b border-white/10 mb-1">
               テーマスタイル
             </div>
@@ -361,12 +384,12 @@
 
         <!-- 7-Language International Dropdown -->
         <div class="relative inline-block text-left" id="lang-container">
-          <button id="lang-toggle-btn" type="button" class="inline-flex items-center space-x-1 px-2.5 py-1.5 rounded-lg text-xs font-mono border border-[#3b1d68] hover:border-[#c084fc] hover:opacity-90 transition bg-black/20">
+          <button id="lang-toggle-btn" type="button" class="inline-flex items-center space-x-1 px-2.5 py-1.5 rounded-lg text-xs font-mono border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] hover:opacity-90 transition bg-black/20">
             <span>[JA]</span>
             <span class="font-bold">JA</span>
             <span class="text-[9px] opacity-60">&darr;</span>
           </button>
-          <div id="lang-dropdown-menu" class="hidden absolute right-0 mt-2 w-36 rounded-xl bg-[#160e2b] border border-[#3b1d68] hover:border-[#c084fc] shadow-[0_4px_25px_rgba(192,132,252,0.15)] z-50 py-1.5 font-mono text-xs shadow-2xl">
+          <div id="lang-dropdown-menu" class="hidden absolute right-0 mt-2 w-36 rounded-xl bg-white dark:bg-[#1e293b] border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] shadow-[0_2px_12px_rgba(0,0,0,0.04)] dark:shadow-none z-50 py-1.5 font-mono text-xs shadow-2xl">
             
             <a href="/" class="flex items-center justify-between px-3 py-1.5 hover:bg-white/10 transition opacity-75">
               <span>[EN] English</span>
@@ -407,7 +430,7 @@
         </div>
 
         <!-- Mobile Menu Toggle Button (Visible on mobile <768px) -->
-        <button id="mobile-menu-btn" type="button" class="md:hidden p-2 rounded-lg border border-[#3b1d68] hover:border-[#c084fc] hover:opacity-80 transition flex items-center justify-center bg-black/20" aria-label="Toggle Navigation Menu">
+        <button id="mobile-menu-btn" type="button" class="md:hidden p-2 rounded-lg border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] hover:opacity-80 transition flex items-center justify-center bg-black/20" aria-label="Toggle Navigation Menu">
           <svg id="hamburger-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
@@ -419,26 +442,26 @@
     </div>
 
     <!-- Mobile Collapsible Navigation Menu Drawer -->
-    <div id="mobile-menu" class="hidden md:hidden border-t border-[#3b1d68] bg-[#160e2b]/90 backdrop-blur-xl px-4 pt-3 pb-5 space-y-2 backdrop-blur-lg">
+    <div id="mobile-menu" class="hidden md:hidden border-t border-[#e7e5e4] dark:border-[#334155] bg-white/80 dark:bg-[#0f172a]/80 backdrop-blur-lg px-4 pt-3 pb-5 space-y-2 backdrop-blur-lg">
       <a href="/ja/" class="block px-3 py-2 rounded-xl text-sm font-semibold hover:bg-white/10 transition">ホーム</a>
 
       <!-- Mobile Theme Switcher Bar -->
       <div class="py-2 border-b border-white/10 mb-2">
         <div class="text-[10px] uppercase font-mono opacity-50 mb-1.5">テーマスタイル</div>
         <div class="grid grid-cols-4 gap-1.5">
-          <button onclick="window.switchTheme('terminal_dev', true)" class="p-1.5 rounded-lg border border-[#3b1d68] hover:border-[#c084fc] bg-black/20 flex flex-col items-center text-[10px] font-mono hover:bg-white/10 transition">
+          <button onclick="window.switchTheme('terminal_dev', true)" title="黒 (ターミナル)" class="p-1.5 rounded-lg border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] bg-black/20 flex flex-col items-center text-[10px] font-mono hover:bg-white/10 transition">
             <span class="w-2.5 h-2.5 rounded-full bg-[#10b981] mb-1"></span>
-            <span class="truncate max-w-full">黒 (タ</span>
+            <span class="truncate max-w-full">ターミナル</span>
           </button>
-          <button onclick="window.switchTheme('cyber_electric', true)" class="p-1.5 rounded-lg border border-[#3b1d68] hover:border-[#c084fc] bg-black/20 flex flex-col items-center text-[10px] font-mono hover:bg-white/10 transition">
+          <button onclick="window.switchTheme('cyber_electric', true)" title="サイバーネオン" class="p-1.5 rounded-lg border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] bg-black/20 flex flex-col items-center text-[10px] font-mono hover:bg-white/10 transition">
             <span class="w-2.5 h-2.5 rounded-full bg-[#38bdf8] mb-1"></span>
             <span class="truncate max-w-full">サイバー</span>
           </button>
-          <button onclick="window.switchTheme('midnight_purple', true)" class="p-1.5 rounded-lg border border-[#3b1d68] hover:border-[#c084fc] bg-black/20 flex flex-col items-center text-[10px] font-mono hover:bg-white/10 transition">
+          <button onclick="window.switchTheme('midnight_purple', true)" title="ミッドナイトパープル" class="p-1.5 rounded-lg border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] bg-black/20 flex flex-col items-center text-[10px] font-mono hover:bg-white/10 transition">
             <span class="w-2.5 h-2.5 rounded-full bg-[#c084fc] mb-1"></span>
-            <span class="truncate max-w-full">ミッドナ</span>
+            <span class="truncate max-w-full">パープル</span>
           </button>
-          <button onclick="window.switchTheme('swiss_minimal', true)" class="p-1.5 rounded-lg border border-[#3b1d68] hover:border-[#c084fc] bg-black/20 flex flex-col items-center text-[10px] font-mono hover:bg-white/10 transition">
+          <button onclick="window.switchTheme('swiss_minimal', true)" title="ミニマル (白)" class="p-1.5 rounded-lg border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] bg-black/20 flex flex-col items-center text-[10px] font-mono hover:bg-white/10 transition">
             <span class="w-2.5 h-2.5 rounded-full bg-[#2563eb] mb-1"></span>
             <span class="truncate max-w-full">ミニマル</span>
           </button>
@@ -446,18 +469,18 @@
       </div>
 
       <!-- Quick Search Trigger in Mobile Drawer -->
-      <button id="mobile-search-trigger" type="button" class="w-full flex items-center justify-between px-3 py-2 rounded-xl border border-[#3b1d68] hover:border-[#c084fc] bg-black/20 text-xs font-mono opacity-80">
+      <button id="mobile-search-trigger" type="button" class="w-full flex items-center justify-between px-3 py-2 rounded-xl border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] bg-black/20 text-xs font-mono opacity-80">
         <span class="flex items-center space-x-2">
           <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
           </svg>
           <span>ツール名・用途・拡張子で瞬時に絞り込み... (/ キーで検索)</span>
         </span>
-        <kbd class="text-[10px] px-1.5 py-0.5 rounded border border-[#3b1d68] hover:border-[#c084fc] opacity-50">/</kbd>
+        <kbd class="text-[10px] px-1.5 py-0.5 rounded border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] opacity-50">/</kbd>
       </button>
 
       <!-- Tools Group in Mobile Drawer -->
-      <div class="pt-2 border-t border-[#3b1d68]">
+      <div class="pt-2 border-t border-[#e7e5e4] dark:border-[#334155]">
         <div class="text-[10px] font-mono uppercase tracking-wider opacity-50 px-3 mb-1">全ツール一覧 (6)</div>
         <div class="space-y-1 max-h-60 overflow-y-auto">
           
@@ -504,14 +527,14 @@
         <div class="max-w-7xl mx-auto">
           <!-- Hero Banner (Mobile & Desktop Responsive) -->
           <div class="text-center py-8 sm:py-12 md:py-16">
-            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#c084fc]/15 text-[#c084fc] border border-[#c084fc]/30 font-mono text-xs text-[11px] sm:text-xs font-mono mb-4 sm:mb-5">
-              <span>Webエンジニア向け 高速オンライン開発ツール集</span>
+            <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-[#f1f5f9] dark:bg-[#334155] text-[#334155] dark:text-[#94a3b8] font-medium text-[11px] sm:text-xs font-mono mb-4 sm:mb-5">
+              <span>高機能テキスト整形 & Markdown スタジオ</span>
             </div>
             <h1 class="text-2xl sm:text-3xl md:text-5xl font-extrabold tracking-tight mb-3 sm:mb-4">
               TextZen Studio
             </h1>
             <p class="max-w-2xl mx-auto text-xs sm:text-sm md:text-base opacity-75 leading-relaxed px-2">
-              日々の開発業務を加速するモダンなオンラインツール集。サーバー送信なし、完全無料・安全・快適に利用可能です。
+              文章の校正・文字数カウント・Diff比較・Markdown編集を瞬時に実行。外部送信ゼロで機密文書も安心。
             </p>
           </div>
 
@@ -523,9 +546,9 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
                 </svg>
               </div>
-              <input type="text" id="tool-search" placeholder="ツール名・用途・拡張子で瞬時に絞り込み... (/ キーで検索)" class="w-full pl-11 pr-20 py-3 sm:py-3.5 rounded-2xl border border-[#3b1d68] hover:border-[#c084fc] bg-black/10 dark:bg-black/30 text-xs sm:text-sm font-mono focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition">
+              <input type="text" id="tool-search" placeholder="ツール名・用途・拡張子で瞬時に絞り込み... (/ キーで検索)" class="w-full pl-11 pr-20 py-3 sm:py-3.5 rounded-2xl border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] bg-black/10 dark:bg-black/30 text-xs sm:text-sm font-mono focus:outline-none focus:ring-2 focus:ring-emerald-500/50 transition">
               <div class="absolute right-3.5 flex items-center space-x-1.5">
-                <kbd class="hidden sm:inline-block px-1.5 py-0.5 text-[10px] font-mono rounded border border-[#3b1d68] hover:border-[#c084fc] opacity-50 bg-black/20">Ctrl+K</kbd>
+                <kbd class="hidden sm:inline-block px-1.5 py-0.5 text-[10px] font-mono rounded border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] opacity-50 bg-black/20">Ctrl+K</kbd>
                 <button id="btn-clear-search" class="hidden text-xs opacity-60 hover:opacity-100 font-mono px-1">&times;</button>
               </div>
             </div>
@@ -536,21 +559,21 @@
           </div>
 
           <!-- Empty State (Hidden by default) -->
-          <div id="no-tools-found" class="hidden text-center py-12 px-4 rounded-2xl border border-[#3b1d68] hover:border-[#c084fc] bg-black/5 dark:bg-white/5 mb-12">
+          <div id="no-tools-found" class="hidden text-center py-12 px-4 rounded-2xl border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] bg-black/5 dark:bg-white/5 mb-12">
             <p class="text-sm font-mono opacity-75 mb-3">該当するツールが見つかりませんでした。別のキーワードをお試しください。</p>
-            <button id="btn-reset-filter" class="px-4 py-1.5 rounded-xl text-xs font-mono font-bold border border-[#3b1d68] hover:border-[#c084fc] hover:bg-white/10 transition">
+            <button id="btn-reset-filter" class="px-4 py-1.5 rounded-xl text-xs font-mono font-bold border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] hover:bg-white/10 transition">
               フィルターをリセット
             </button>
           </div>
 
           <!-- Grid of Tools (1 col mobile, 2 cols tablet, 3 cols desktop) -->
           <div id="tools-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-5 mb-12 sm:mb-16">
-            <a href="/ja/markdown-live-preview-editor" data-search="markdown リアルタイムプレビュー & html 変換エディタ github互換のmarkdown構文をリアルタイム双方向プレビュー。文字数カウント、表・チェックリスト対応、html即座出力。 markdown プレビュー オンライン markdown エディタ 無料 markdown html 変換 github markdown エディタ markdown 表 作成 markdown リアルタイム 変換 ブラウザ markdown 編集 markdown 日本語 プレビュー markdown-live-preview-editor" class="tool-card bg-[#160e2b] rounded-xl p-5 sm:p-6 border border-[#3b1d68] hover:border-[#c084fc] shadow-[0_4px_25px_rgba(192,132,252,0.15)] transition-all duration-200 flex flex-col justify-between group"><div><div class="flex items-center justify-between mb-3"><span class="text-[11px] font-mono px-2 py-0.5 rounded bg-[#c084fc]/15 text-[#c084fc] border border-[#c084fc]/30 font-mono text-xs">TOOL</span><span class="text-[11px] opacity-50 font-mono">100% ローカル実行</span></div><h3 class="text-base sm:text-lg font-bold group-hover:underline transition mb-2 tracking-tight">Markdown リアルタイムプレビュー & HTML 変換エディタ</h3><p class="text-xs opacity-75 line-clamp-2 mb-4 leading-relaxed">GitHub互換のMarkdown構文をリアルタイム双方向プレビュー。文字数カウント、表・チェックリスト対応、HTML即座出力。</p></div><div><div class="flex flex-wrap mb-3"><span class='inline-block bg-[#c084fc]/15 text-[#c084fc] border border-[#c084fc]/30 font-mono text-xs text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#markdown プレビュー オンライン</span><span class='inline-block bg-[#c084fc]/15 text-[#c084fc] border border-[#c084fc]/30 font-mono text-xs text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#markdown エディタ 無料</span><span class='inline-block bg-[#c084fc]/15 text-[#c084fc] border border-[#c084fc]/30 font-mono text-xs text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#markdown html 変換</span></div><div class="text-xs font-bold flex items-center space-x-1 group-hover:translate-x-1 transition-transform" style="color: #c084fc"><span>ツールを開く</span><span>&rarr;</span></div></div></a>
-<a href="/ja/text-diff-compare-checker" data-search="テキスト差分抽出・文字列比較ツール (2画面並列) 2つの文書や契約書の修正箇所・追記・削除を1文字単位で検出。ドラッグ＆ドロップ対応、完全端末内処理で機密保持。 文章比較 オンライン 2つのテキスト 違い 確認 契約書 差分チェック ドキュメント 比較ツール 修正点 ハイライト表示 テキスト 照合 ツール 無料 diff 比較 文字列 差分 検出 text-diff-compare-checker" class="tool-card bg-[#160e2b] rounded-xl p-5 sm:p-6 border border-[#3b1d68] hover:border-[#c084fc] shadow-[0_4px_25px_rgba(192,132,252,0.15)] transition-all duration-200 flex flex-col justify-between group"><div><div class="flex items-center justify-between mb-3"><span class="text-[11px] font-mono px-2 py-0.5 rounded bg-[#c084fc]/15 text-[#c084fc] border border-[#c084fc]/30 font-mono text-xs">TOOL</span><span class="text-[11px] opacity-50 font-mono">100% ローカル実行</span></div><h3 class="text-base sm:text-lg font-bold group-hover:underline transition mb-2 tracking-tight">テキスト差分抽出・文字列比較ツール (2画面並列)</h3><p class="text-xs opacity-75 line-clamp-2 mb-4 leading-relaxed">2つの文書や契約書の修正箇所・追記・削除を1文字単位で検出。ドラッグ＆ドロップ対応、完全端末内処理で機密保持。</p></div><div><div class="flex flex-wrap mb-3"><span class='inline-block bg-[#c084fc]/15 text-[#c084fc] border border-[#c084fc]/30 font-mono text-xs text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#文章比較 オンライン</span><span class='inline-block bg-[#c084fc]/15 text-[#c084fc] border border-[#c084fc]/30 font-mono text-xs text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#2つのテキスト 違い 確認</span><span class='inline-block bg-[#c084fc]/15 text-[#c084fc] border border-[#c084fc]/30 font-mono text-xs text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#契約書 差分チェック</span></div><div class="text-xs font-bold flex items-center space-x-1 group-hover:translate-x-1 transition-transform" style="color: #c084fc"><span>ツールを開く</span><span>&rarr;</span></div></div></a>
-<a href="/ja/word-counter-reading-time" data-search="文字数・単語数カウント & 推定読了・スピーチ時間計算 日本語文字数（スペースあり/なし）、英単語数、原稿用紙枚数、段落数、黙読・スピーチ想定所要時間をリアルタイム算出。 文字数カウント オンライン 文字数チェッカー 無料 原稿用紙 換算 読了時間 計算 ツール スピーチ 時間 換算 単語数 カウント 空白なし 文字数 レポート 文字数 確認 word-counter-reading-time" class="tool-card bg-[#160e2b] rounded-xl p-5 sm:p-6 border border-[#3b1d68] hover:border-[#c084fc] shadow-[0_4px_25px_rgba(192,132,252,0.15)] transition-all duration-200 flex flex-col justify-between group"><div><div class="flex items-center justify-between mb-3"><span class="text-[11px] font-mono px-2 py-0.5 rounded bg-[#c084fc]/15 text-[#c084fc] border border-[#c084fc]/30 font-mono text-xs">TOOL</span><span class="text-[11px] opacity-50 font-mono">100% ローカル実行</span></div><h3 class="text-base sm:text-lg font-bold group-hover:underline transition mb-2 tracking-tight">文字数・単語数カウント & 推定読了・スピーチ時間計算</h3><p class="text-xs opacity-75 line-clamp-2 mb-4 leading-relaxed">日本語文字数（スペースあり/なし）、英単語数、原稿用紙枚数、段落数、黙読・スピーチ想定所要時間をリアルタイム算出。</p></div><div><div class="flex flex-wrap mb-3"><span class='inline-block bg-[#c084fc]/15 text-[#c084fc] border border-[#c084fc]/30 font-mono text-xs text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#文字数カウント オンライン</span><span class='inline-block bg-[#c084fc]/15 text-[#c084fc] border border-[#c084fc]/30 font-mono text-xs text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#文字数チェッカー 無料</span><span class='inline-block bg-[#c084fc]/15 text-[#c084fc] border border-[#c084fc]/30 font-mono text-xs text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#原稿用紙 換算</span></div><div class="text-xs font-bold flex items-center space-x-1 group-hover:translate-x-1 transition-transform" style="color: #c084fc"><span>ツールを開く</span><span>&rarr;</span></div></div></a>
-<a href="/ja/case-converter-slug-generator" data-search="大文字・小文字変換 & urlスラッグ(slug)生成ツール uppercase、lowercase、キャメルケース、スネークケース、ケバブケース、urlスラッグへワンクリック相互変換。プログラミングに最適。 大文字 小文字 変換 オンライン 大文字に変換 無料 キャメルケース 変換 スネークケース 変換 urlスラッグ 生成 タイトルケース 変換 変数名 変換 ツール 英字 大文字 小文字 切替 case-converter-slug-generator" class="tool-card bg-[#160e2b] rounded-xl p-5 sm:p-6 border border-[#3b1d68] hover:border-[#c084fc] shadow-[0_4px_25px_rgba(192,132,252,0.15)] transition-all duration-200 flex flex-col justify-between group"><div><div class="flex items-center justify-between mb-3"><span class="text-[11px] font-mono px-2 py-0.5 rounded bg-[#c084fc]/15 text-[#c084fc] border border-[#c084fc]/30 font-mono text-xs">TOOL</span><span class="text-[11px] opacity-50 font-mono">100% ローカル実行</span></div><h3 class="text-base sm:text-lg font-bold group-hover:underline transition mb-2 tracking-tight">大文字・小文字変換 & URLスラッグ(Slug)生成ツール</h3><p class="text-xs opacity-75 line-clamp-2 mb-4 leading-relaxed">UPPERCASE、lowercase、キャメルケース、スネークケース、ケバブケース、URLスラッグへワンクリック相互変換。プログラミングに最適。</p></div><div><div class="flex flex-wrap mb-3"><span class='inline-block bg-[#c084fc]/15 text-[#c084fc] border border-[#c084fc]/30 font-mono text-xs text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#大文字 小文字 変換 オンライン</span><span class='inline-block bg-[#c084fc]/15 text-[#c084fc] border border-[#c084fc]/30 font-mono text-xs text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#大文字に変換 無料</span><span class='inline-block bg-[#c084fc]/15 text-[#c084fc] border border-[#c084fc]/30 font-mono text-xs text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#キャメルケース 変換</span></div><div class="text-xs font-bold flex items-center space-x-1 group-hover:translate-x-1 transition-transform" style="color: #c084fc"><span>ツールを開く</span><span>&rarr;</span></div></div></a>
-<a href="/ja/lorem-ipsum-dummy-generator" data-search="lorem ipsum ダミーテキスト生成ツール (段落・文字数・htmlタグ指定) webデザインやdtpレイアウトで重宝するlorem ipsumダミー文章を瞬時に作成。段落数・文字数・htmlタグ自動挿入に対応。 lorem ipsum 生成 オンライン ダミーテキスト 作成 無料 プレースホルダー 文書 作成 サンプル文章 生成 htmlタグ付き ダミーテキスト デザイン用 疑似テキスト ラテン語 プレースホルダー ダミー文 コピー lorem-ipsum-dummy-generator" class="tool-card bg-[#160e2b] rounded-xl p-5 sm:p-6 border border-[#3b1d68] hover:border-[#c084fc] shadow-[0_4px_25px_rgba(192,132,252,0.15)] transition-all duration-200 flex flex-col justify-between group"><div><div class="flex items-center justify-between mb-3"><span class="text-[11px] font-mono px-2 py-0.5 rounded bg-[#c084fc]/15 text-[#c084fc] border border-[#c084fc]/30 font-mono text-xs">TOOL</span><span class="text-[11px] opacity-50 font-mono">100% ローカル実行</span></div><h3 class="text-base sm:text-lg font-bold group-hover:underline transition mb-2 tracking-tight">Lorem Ipsum ダミーテキスト生成ツール (段落・文字数・HTMLタグ指定)</h3><p class="text-xs opacity-75 line-clamp-2 mb-4 leading-relaxed">WebデザインやDTPレイアウトで重宝するLorem Ipsumダミー文章を瞬時に作成。段落数・文字数・HTMLタグ自動挿入に対応。</p></div><div><div class="flex flex-wrap mb-3"><span class='inline-block bg-[#c084fc]/15 text-[#c084fc] border border-[#c084fc]/30 font-mono text-xs text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#lorem ipsum 生成 オンライン</span><span class='inline-block bg-[#c084fc]/15 text-[#c084fc] border border-[#c084fc]/30 font-mono text-xs text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#ダミーテキスト 作成 無料</span><span class='inline-block bg-[#c084fc]/15 text-[#c084fc] border border-[#c084fc]/30 font-mono text-xs text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#プレースホルダー 文書 作成</span></div><div class="text-xs font-bold flex items-center space-x-1 group-hover:translate-x-1 transition-transform" style="color: #c084fc"><span>ツールを開く</span><span>&rarr;</span></div></div></a>
-<a href="/ja/text-cleaner-duplicate-remover" data-search="テキスト行クリーナー (重複行削除・空行除去・アルファベットソート) テキストリストの重複行を一括削除し、空行除去や行頭末尾の空白トリム、アルファベット順・文字数順の並べ替えを瞬時に実行。 テキスト重複削除 オンライン 重複行の削除 ツール 空行削除 ツール テキスト アルファベット順 ソート 余分なスペース 除去 リスト 重複排除 テキスト整形 無料 改行削除 ツール text-cleaner-duplicate-remover" class="tool-card bg-[#160e2b] rounded-xl p-5 sm:p-6 border border-[#3b1d68] hover:border-[#c084fc] shadow-[0_4px_25px_rgba(192,132,252,0.15)] transition-all duration-200 flex flex-col justify-between group"><div><div class="flex items-center justify-between mb-3"><span class="text-[11px] font-mono px-2 py-0.5 rounded bg-[#c084fc]/15 text-[#c084fc] border border-[#c084fc]/30 font-mono text-xs">TOOL</span><span class="text-[11px] opacity-50 font-mono">100% ローカル実行</span></div><h3 class="text-base sm:text-lg font-bold group-hover:underline transition mb-2 tracking-tight">テキスト行クリーナー (重複行削除・空行除去・アルファベットソート)</h3><p class="text-xs opacity-75 line-clamp-2 mb-4 leading-relaxed">テキストリストの重複行を一括削除し、空行除去や行頭末尾の空白トリム、アルファベット順・文字数順の並べ替えを瞬時に実行。</p></div><div><div class="flex flex-wrap mb-3"><span class='inline-block bg-[#c084fc]/15 text-[#c084fc] border border-[#c084fc]/30 font-mono text-xs text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#テキスト重複削除 オンライン</span><span class='inline-block bg-[#c084fc]/15 text-[#c084fc] border border-[#c084fc]/30 font-mono text-xs text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#重複行の削除 ツール</span><span class='inline-block bg-[#c084fc]/15 text-[#c084fc] border border-[#c084fc]/30 font-mono text-xs text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#空行削除 ツール</span></div><div class="text-xs font-bold flex items-center space-x-1 group-hover:translate-x-1 transition-transform" style="color: #c084fc"><span>ツールを開く</span><span>&rarr;</span></div></div></a>
+            <a href="/ja/markdown-live-preview-editor" data-search="markdown リアルタイムプレビュー & html 変換エディタ github互換のmarkdown構文をリアルタイム双方向プレビュー。文字数カウント、表・チェックリスト対応、html即座出力。 markdown プレビュー オンライン markdown エディタ 無料 markdown html 変換 github markdown エディタ markdown 表 作成 markdown リアルタイム 変換 ブラウザ markdown 編集 markdown 日本語 プレビュー markdown-live-preview-editor" class="tool-card bg-white dark:bg-[#1e293b] rounded-xl p-5 sm:p-6 border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] shadow-[0_2px_12px_rgba(0,0,0,0.04)] dark:shadow-none transition-all duration-200 flex flex-col justify-between group"><div><div class="flex items-center justify-between mb-3"><span class="text-[11px] font-mono px-2 py-0.5 rounded bg-[#f1f5f9] dark:bg-[#334155] text-[#334155] dark:text-[#94a3b8] font-medium">TOOL</span><span class="text-[11px] opacity-50 font-mono">100% ローカル実行</span></div><h3 class="text-base sm:text-lg font-bold group-hover:underline transition mb-2 tracking-tight">Markdown リアルタイムプレビュー & HTML 変換エディタ</h3><p class="text-xs opacity-75 line-clamp-2 mb-4 leading-relaxed">GitHub互換のMarkdown構文をリアルタイム双方向プレビュー。文字数カウント、表・チェックリスト対応、HTML即座出力。</p></div><div><div class="flex flex-wrap mb-3"><span class='inline-block bg-[#f1f5f9] dark:bg-[#334155] text-[#334155] dark:text-[#94a3b8] font-medium text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#markdown プレビュー オンライン</span><span class='inline-block bg-[#f1f5f9] dark:bg-[#334155] text-[#334155] dark:text-[#94a3b8] font-medium text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#markdown エディタ 無料</span><span class='inline-block bg-[#f1f5f9] dark:bg-[#334155] text-[#334155] dark:text-[#94a3b8] font-medium text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#markdown html 変換</span></div><div class="text-xs font-bold flex items-center space-x-1 group-hover:translate-x-1 transition-transform" style="color: #2563eb"><span>ツールを開く</span><span>&rarr;</span></div></div></a>
+<a href="/ja/text-diff-compare-checker" data-search="テキスト差分抽出・文字列比較ツール (2画面並列) 2つの文書や契約書の修正箇所・追記・削除を1文字単位で検出。ドラッグ＆ドロップ対応、完全端末内処理で機密保持。 文章比較 オンライン 2つのテキスト 違い 確認 契約書 差分チェック ドキュメント 比較ツール 修正点 ハイライト表示 テキスト 照合 ツール 無料 diff 比較 文字列 差分 検出 text-diff-compare-checker" class="tool-card bg-white dark:bg-[#1e293b] rounded-xl p-5 sm:p-6 border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] shadow-[0_2px_12px_rgba(0,0,0,0.04)] dark:shadow-none transition-all duration-200 flex flex-col justify-between group"><div><div class="flex items-center justify-between mb-3"><span class="text-[11px] font-mono px-2 py-0.5 rounded bg-[#f1f5f9] dark:bg-[#334155] text-[#334155] dark:text-[#94a3b8] font-medium">TOOL</span><span class="text-[11px] opacity-50 font-mono">100% ローカル実行</span></div><h3 class="text-base sm:text-lg font-bold group-hover:underline transition mb-2 tracking-tight">テキスト差分抽出・文字列比較ツール (2画面並列)</h3><p class="text-xs opacity-75 line-clamp-2 mb-4 leading-relaxed">2つの文書や契約書の修正箇所・追記・削除を1文字単位で検出。ドラッグ＆ドロップ対応、完全端末内処理で機密保持。</p></div><div><div class="flex flex-wrap mb-3"><span class='inline-block bg-[#f1f5f9] dark:bg-[#334155] text-[#334155] dark:text-[#94a3b8] font-medium text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#文章比較 オンライン</span><span class='inline-block bg-[#f1f5f9] dark:bg-[#334155] text-[#334155] dark:text-[#94a3b8] font-medium text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#2つのテキスト 違い 確認</span><span class='inline-block bg-[#f1f5f9] dark:bg-[#334155] text-[#334155] dark:text-[#94a3b8] font-medium text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#契約書 差分チェック</span></div><div class="text-xs font-bold flex items-center space-x-1 group-hover:translate-x-1 transition-transform" style="color: #2563eb"><span>ツールを開く</span><span>&rarr;</span></div></div></a>
+<a href="/ja/word-counter-reading-time" data-search="文字数・単語数カウント & 推定読了・スピーチ時間計算 日本語文字数（スペースあり/なし）、英単語数、原稿用紙枚数、段落数、黙読・スピーチ想定所要時間をリアルタイム算出。 文字数カウント オンライン 文字数チェッカー 無料 原稿用紙 換算 読了時間 計算 ツール スピーチ 時間 換算 単語数 カウント 空白なし 文字数 レポート 文字数 確認 word-counter-reading-time" class="tool-card bg-white dark:bg-[#1e293b] rounded-xl p-5 sm:p-6 border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] shadow-[0_2px_12px_rgba(0,0,0,0.04)] dark:shadow-none transition-all duration-200 flex flex-col justify-between group"><div><div class="flex items-center justify-between mb-3"><span class="text-[11px] font-mono px-2 py-0.5 rounded bg-[#f1f5f9] dark:bg-[#334155] text-[#334155] dark:text-[#94a3b8] font-medium">TOOL</span><span class="text-[11px] opacity-50 font-mono">100% ローカル実行</span></div><h3 class="text-base sm:text-lg font-bold group-hover:underline transition mb-2 tracking-tight">文字数・単語数カウント & 推定読了・スピーチ時間計算</h3><p class="text-xs opacity-75 line-clamp-2 mb-4 leading-relaxed">日本語文字数（スペースあり/なし）、英単語数、原稿用紙枚数、段落数、黙読・スピーチ想定所要時間をリアルタイム算出。</p></div><div><div class="flex flex-wrap mb-3"><span class='inline-block bg-[#f1f5f9] dark:bg-[#334155] text-[#334155] dark:text-[#94a3b8] font-medium text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#文字数カウント オンライン</span><span class='inline-block bg-[#f1f5f9] dark:bg-[#334155] text-[#334155] dark:text-[#94a3b8] font-medium text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#文字数チェッカー 無料</span><span class='inline-block bg-[#f1f5f9] dark:bg-[#334155] text-[#334155] dark:text-[#94a3b8] font-medium text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#原稿用紙 換算</span></div><div class="text-xs font-bold flex items-center space-x-1 group-hover:translate-x-1 transition-transform" style="color: #2563eb"><span>ツールを開く</span><span>&rarr;</span></div></div></a>
+<a href="/ja/case-converter-slug-generator" data-search="大文字・小文字変換 & urlスラッグ(slug)生成ツール uppercase、lowercase、キャメルケース、スネークケース、ケバブケース、urlスラッグへワンクリック相互変換。プログラミングに最適。 大文字 小文字 変換 オンライン 大文字に変換 無料 キャメルケース 変換 スネークケース 変換 urlスラッグ 生成 タイトルケース 変換 変数名 変換 ツール 英字 大文字 小文字 切替 case-converter-slug-generator" class="tool-card bg-white dark:bg-[#1e293b] rounded-xl p-5 sm:p-6 border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] shadow-[0_2px_12px_rgba(0,0,0,0.04)] dark:shadow-none transition-all duration-200 flex flex-col justify-between group"><div><div class="flex items-center justify-between mb-3"><span class="text-[11px] font-mono px-2 py-0.5 rounded bg-[#f1f5f9] dark:bg-[#334155] text-[#334155] dark:text-[#94a3b8] font-medium">TOOL</span><span class="text-[11px] opacity-50 font-mono">100% ローカル実行</span></div><h3 class="text-base sm:text-lg font-bold group-hover:underline transition mb-2 tracking-tight">大文字・小文字変換 & URLスラッグ(Slug)生成ツール</h3><p class="text-xs opacity-75 line-clamp-2 mb-4 leading-relaxed">UPPERCASE、lowercase、キャメルケース、スネークケース、ケバブケース、URLスラッグへワンクリック相互変換。プログラミングに最適。</p></div><div><div class="flex flex-wrap mb-3"><span class='inline-block bg-[#f1f5f9] dark:bg-[#334155] text-[#334155] dark:text-[#94a3b8] font-medium text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#大文字 小文字 変換 オンライン</span><span class='inline-block bg-[#f1f5f9] dark:bg-[#334155] text-[#334155] dark:text-[#94a3b8] font-medium text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#大文字に変換 無料</span><span class='inline-block bg-[#f1f5f9] dark:bg-[#334155] text-[#334155] dark:text-[#94a3b8] font-medium text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#キャメルケース 変換</span></div><div class="text-xs font-bold flex items-center space-x-1 group-hover:translate-x-1 transition-transform" style="color: #2563eb"><span>ツールを開く</span><span>&rarr;</span></div></div></a>
+<a href="/ja/lorem-ipsum-dummy-generator" data-search="lorem ipsum ダミーテキスト生成ツール (段落・文字数・htmlタグ指定) webデザインやdtpレイアウトで重宝するlorem ipsumダミー文章を瞬時に作成。段落数・文字数・htmlタグ自動挿入に対応。 lorem ipsum 生成 オンライン ダミーテキスト 作成 無料 プレースホルダー 文書 作成 サンプル文章 生成 htmlタグ付き ダミーテキスト デザイン用 疑似テキスト ラテン語 プレースホルダー ダミー文 コピー lorem-ipsum-dummy-generator" class="tool-card bg-white dark:bg-[#1e293b] rounded-xl p-5 sm:p-6 border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] shadow-[0_2px_12px_rgba(0,0,0,0.04)] dark:shadow-none transition-all duration-200 flex flex-col justify-between group"><div><div class="flex items-center justify-between mb-3"><span class="text-[11px] font-mono px-2 py-0.5 rounded bg-[#f1f5f9] dark:bg-[#334155] text-[#334155] dark:text-[#94a3b8] font-medium">TOOL</span><span class="text-[11px] opacity-50 font-mono">100% ローカル実行</span></div><h3 class="text-base sm:text-lg font-bold group-hover:underline transition mb-2 tracking-tight">Lorem Ipsum ダミーテキスト生成ツール (段落・文字数・HTMLタグ指定)</h3><p class="text-xs opacity-75 line-clamp-2 mb-4 leading-relaxed">WebデザインやDTPレイアウトで重宝するLorem Ipsumダミー文章を瞬時に作成。段落数・文字数・HTMLタグ自動挿入に対応。</p></div><div><div class="flex flex-wrap mb-3"><span class='inline-block bg-[#f1f5f9] dark:bg-[#334155] text-[#334155] dark:text-[#94a3b8] font-medium text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#lorem ipsum 生成 オンライン</span><span class='inline-block bg-[#f1f5f9] dark:bg-[#334155] text-[#334155] dark:text-[#94a3b8] font-medium text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#ダミーテキスト 作成 無料</span><span class='inline-block bg-[#f1f5f9] dark:bg-[#334155] text-[#334155] dark:text-[#94a3b8] font-medium text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#プレースホルダー 文書 作成</span></div><div class="text-xs font-bold flex items-center space-x-1 group-hover:translate-x-1 transition-transform" style="color: #2563eb"><span>ツールを開く</span><span>&rarr;</span></div></div></a>
+<a href="/ja/text-cleaner-duplicate-remover" data-search="テキスト行クリーナー (重複行削除・空行除去・アルファベットソート) テキストリストの重複行を一括削除し、空行除去や行頭末尾の空白トリム、アルファベット順・文字数順の並べ替えを瞬時に実行。 テキスト重複削除 オンライン 重複行の削除 ツール 空行削除 ツール テキスト アルファベット順 ソート 余分なスペース 除去 リスト 重複排除 テキスト整形 無料 改行削除 ツール text-cleaner-duplicate-remover" class="tool-card bg-white dark:bg-[#1e293b] rounded-xl p-5 sm:p-6 border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] shadow-[0_2px_12px_rgba(0,0,0,0.04)] dark:shadow-none transition-all duration-200 flex flex-col justify-between group"><div><div class="flex items-center justify-between mb-3"><span class="text-[11px] font-mono px-2 py-0.5 rounded bg-[#f1f5f9] dark:bg-[#334155] text-[#334155] dark:text-[#94a3b8] font-medium">TOOL</span><span class="text-[11px] opacity-50 font-mono">100% ローカル実行</span></div><h3 class="text-base sm:text-lg font-bold group-hover:underline transition mb-2 tracking-tight">テキスト行クリーナー (重複行削除・空行除去・アルファベットソート)</h3><p class="text-xs opacity-75 line-clamp-2 mb-4 leading-relaxed">テキストリストの重複行を一括削除し、空行除去や行頭末尾の空白トリム、アルファベット順・文字数順の並べ替えを瞬時に実行。</p></div><div><div class="flex flex-wrap mb-3"><span class='inline-block bg-[#f1f5f9] dark:bg-[#334155] text-[#334155] dark:text-[#94a3b8] font-medium text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#テキスト重複削除 オンライン</span><span class='inline-block bg-[#f1f5f9] dark:bg-[#334155] text-[#334155] dark:text-[#94a3b8] font-medium text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#重複行の削除 ツール</span><span class='inline-block bg-[#f1f5f9] dark:bg-[#334155] text-[#334155] dark:text-[#94a3b8] font-medium text-[11px] sm:text-xs px-2 py-0.5 rounded mr-1.5 mb-1.5 font-mono'>#空行削除 ツール</span></div><div class="text-xs font-bold flex items-center space-x-1 group-hover:translate-x-1 transition-transform" style="color: #2563eb"><span>ツールを開く</span><span>&rarr;</span></div></div></a>
           </div>
         </div>
 
@@ -624,7 +647,7 @@
   </main>
 
   <!-- Internal Linking Matrix -->
-  <section class="border-t border-[#3b1d68] py-12 px-4 sm:px-6 lg:px-8 opacity-95">
+  <section class="border-t border-[#e7e5e4] dark:border-[#334155] py-12 px-4 sm:px-6 lg:px-8 opacity-95">
     <div class="max-w-7xl mx-auto">
       <div class="flex items-center justify-between mb-6">
         <h3 class="text-sm font-bold uppercase tracking-wider opacity-80 font-mono">
@@ -635,7 +658,7 @@
 
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
         
-        <a href="/ja/markdown-live-preview-editor" class="p-3.5 rounded-lg border border-[#3b1d68] hover:border-[#c084fc] bg-[#160e2b] transition group block">
+        <a href="/ja/markdown-live-preview-editor" class="p-3.5 rounded-lg border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] bg-white dark:bg-[#1e293b] transition group block">
           <div class="text-xs font-bold truncate group-hover:underline">
             Markdown リアルタイムプレビュー & HTML 変換エディタ
           </div>
@@ -644,7 +667,7 @@
           </p>
         </a>
         
-        <a href="/ja/text-diff-compare-checker" class="p-3.5 rounded-lg border border-[#3b1d68] hover:border-[#c084fc] bg-[#160e2b] transition group block">
+        <a href="/ja/text-diff-compare-checker" class="p-3.5 rounded-lg border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] bg-white dark:bg-[#1e293b] transition group block">
           <div class="text-xs font-bold truncate group-hover:underline">
             テキスト差分抽出・文字列比較ツール (2画面並列)
           </div>
@@ -653,7 +676,7 @@
           </p>
         </a>
         
-        <a href="/ja/word-counter-reading-time" class="p-3.5 rounded-lg border border-[#3b1d68] hover:border-[#c084fc] bg-[#160e2b] transition group block">
+        <a href="/ja/word-counter-reading-time" class="p-3.5 rounded-lg border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] bg-white dark:bg-[#1e293b] transition group block">
           <div class="text-xs font-bold truncate group-hover:underline">
             文字数・単語数カウント & 推定読了・スピーチ時間計算
           </div>
@@ -662,7 +685,7 @@
           </p>
         </a>
         
-        <a href="/ja/case-converter-slug-generator" class="p-3.5 rounded-lg border border-[#3b1d68] hover:border-[#c084fc] bg-[#160e2b] transition group block">
+        <a href="/ja/case-converter-slug-generator" class="p-3.5 rounded-lg border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] bg-white dark:bg-[#1e293b] transition group block">
           <div class="text-xs font-bold truncate group-hover:underline">
             大文字・小文字変換 & URLスラッグ(Slug)生成ツール
           </div>
@@ -671,7 +694,7 @@
           </p>
         </a>
         
-        <a href="/ja/lorem-ipsum-dummy-generator" class="p-3.5 rounded-lg border border-[#3b1d68] hover:border-[#c084fc] bg-[#160e2b] transition group block">
+        <a href="/ja/lorem-ipsum-dummy-generator" class="p-3.5 rounded-lg border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] bg-white dark:bg-[#1e293b] transition group block">
           <div class="text-xs font-bold truncate group-hover:underline">
             Lorem Ipsum ダミーテキスト生成ツール (段落・文字数・HTMLタグ指定)
           </div>
@@ -680,7 +703,7 @@
           </p>
         </a>
         
-        <a href="/ja/text-cleaner-duplicate-remover" class="p-3.5 rounded-lg border border-[#3b1d68] hover:border-[#c084fc] bg-[#160e2b] transition group block">
+        <a href="/ja/text-cleaner-duplicate-remover" class="p-3.5 rounded-lg border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] bg-white dark:bg-[#1e293b] transition group block">
           <div class="text-xs font-bold truncate group-hover:underline">
             テキスト行クリーナー (重複行削除・空行除去・アルファベットソート)
           </div>
@@ -694,10 +717,16 @@
   </section>
 
   <!-- Footer -->
-  <footer class="border-t border-[#3b1d68] py-8 text-center text-xs opacity-75">
+  <footer class="border-t border-[#e7e5e4] dark:border-[#334155] py-8 text-center text-xs opacity-75">
     <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
-      <div>
-        &copy; 2026 <strong>TextZen Studio</strong>. 完全ブラウザ内ローカル処理 · Cloudflare グローバルエッジ高速配信。
+      <div class="text-left space-y-1">
+        <div>
+          &copy; 2026 <strong>TextZen Studio</strong>. 完全ブラウザ内ローカル処理 · Cloudflare グローバルエッジ高速配信。
+        </div>
+        <div class="text-[11px] opacity-60 font-mono">
+          🔒 100% ブラウザ内ローカル処理：サーバー保存ゼロ、データ送信ゼロで完全なプライバシーを保護。
+          
+        </div>
       </div>
       <div class="flex space-x-4 font-mono text-[11px]">
         <a href="/sitemap.xml" class="hover:underline">sitemap.xml</a>
@@ -708,7 +737,7 @@
   </footer>
 
   <!-- Floating Back to Top Button -->
-  <button id="back-to-top-btn" type="button" class="fixed bottom-6 right-6 p-2.5 rounded-full bg-[#160e2b] border border-[#3b1d68] hover:border-[#c084fc] shadow-xl opacity-0 pointer-events-none transition-all duration-300 z-40 hover:scale-110 focus:outline-none" aria-label="Back to top" title="Back to top">
+  <button id="back-to-top-btn" type="button" class="fixed bottom-6 right-6 p-2.5 rounded-full bg-white dark:bg-[#1e293b] border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] shadow-xl opacity-0 pointer-events-none transition-all duration-300 z-40 hover:scale-110 focus:outline-none" aria-label="Back to top" title="Back to top">
     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
     </svg>
@@ -834,7 +863,7 @@
       if (saved && THEME_NAMES[saved]) {
         window.switchTheme(saved, false);
       } else {
-        window.switchTheme('midnight_purple', false);
+        window.switchTheme('swiss_minimal', false);
       }
     } catch (e) {}
 

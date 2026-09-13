@@ -6,6 +6,7 @@
   <title>Wortzähler, Zeichenzähler & Lesezeit-Rechner Online | TextZen Studio</title>
   <meta name="description" content="Echtzeit-Zählung von Wörtern, Zeichen (mit/ohne Leerzeichen), Sätzen und Absätzen inklusive geschätzter Lese- und Sprechzeit.">
   <link rel="canonical" href="https://textzen.globalcorehub.com/de/word-counter-reading-time">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://textzen.globalcorehub.com/sitemap.xml">
 
   <!-- Dynamic Zero-Latency SVG Favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%2310b981'/><text y='70' x='18' font-size='65' font-family='monospace' font-weight='bold' fill='%230c0e14'>&gt;_</text></svg>">
@@ -13,6 +14,7 @@
   <!-- International SEO hreflang tags (7 Languages) -->
   <link rel="alternate" hreflang="en" href="https://textzen.globalcorehub.com/word-counter-reading-time" />
   <link rel="alternate" hreflang="zh-CN" href="https://textzen.globalcorehub.com/zh/word-counter-reading-time" />
+  <link rel="alternate" hreflang="zh" href="https://textzen.globalcorehub.com/zh/word-counter-reading-time" />
   <link rel="alternate" hreflang="es" href="https://textzen.globalcorehub.com/es/word-counter-reading-time" />
   <link rel="alternate" hreflang="pt" href="https://textzen.globalcorehub.com/pt/word-counter-reading-time" />
   <link rel="alternate" hreflang="de" href="https://textzen.globalcorehub.com/de/word-counter-reading-time" />
@@ -26,24 +28,29 @@
   <meta property="og:title" content="Wortzähler, Zeichenzähler & Lesezeit-Rechner Online | TextZen Studio">
   <meta property="og:description" content="Echtzeit-Zählung von Wörtern, Zeichen (mit/ohne Leerzeichen), Sätzen und Absätzen inklusive geschätzter Lese- und Sprechzeit.">
   <meta property="og:site_name" content="TextZen Studio">
-  <meta property="og:locale" content="de">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:image" content="https://textzen.globalcorehub.com/og-image.svg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="TextZen Studio">
 
   <!-- Twitter Social Cards -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Wortzähler, Zeichenzähler & Lesezeit-Rechner Online | TextZen Studio">
   <meta name="twitter:description" content="Echtzeit-Zählung von Wörtern, Zeichen (mit/ohne Leerzeichen), Sätzen und Absätzen inklusive geschätzter Lese- und Sprechzeit.">
+  <meta name="twitter:image" content="https://textzen.globalcorehub.com/og-image.svg">
 
   <!-- Multi-Theme Typography Imports (JetBrains Mono, Plus Jakarta Sans, Space Grotesk) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  
 
   <!-- Immediate Zero-FOUC Theme Initializer -->
   <script>
     (function() {
       try {
-        var t = localStorage.getItem('agy_theme') || 'midnight_purple';
+        var t = localStorage.getItem('agy_theme') || 'swiss_minimal';
         document.documentElement.setAttribute('data-theme', t);
         if (t === 'swiss_minimal') {
           document.documentElement.classList.remove('dark');
@@ -62,7 +69,7 @@
       theme: {
         extend: {
           colors: {
-            brand: '#c084fc'
+            brand: '#2563eb'
           }
         }
       }
@@ -73,8 +80,9 @@
   <style>
     body { font-family: 'Plus Jakarta Sans', sans-serif; }
     
-        .purple-glow { text-shadow: 0 0 10px rgba(192,132,252,0.6); }
-        .purple-box { box-shadow: 0 0 15px rgba(192,132,252,0.2); }
+        body { letter-spacing: -0.015em; }
+        .glass-panel { backdrop-filter: blur(16px); background: rgba(255,255,255,0.7); }
+        .dark .glass-panel { background: rgba(15,23,42,0.7); }
         
 
     /* Dynamic Multi-Theme Overrides */
@@ -162,6 +170,21 @@
     }
   </style>
 
+  <!-- Structured Data JSON-LD (WebSite & SearchAction) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "TextZen Studio",
+    "url": "https://textzen.globalcorehub.com/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://textzen.globalcorehub.com/?q={search_term_string}#tool-search",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+
   <!-- Structured Data JSON-LD (WebApplication) -->
   <script type="application/ld+json">
   {
@@ -170,7 +193,7 @@
     "name": "Wortzähler, Zeichenzähler & Lesezeit-Rechner Online",
     "url": "https://textzen.globalcorehub.com/de/word-counter-reading-time",
     "description": "Echtzeit-Zählung von Wörtern, Zeichen (mit/ohne Leerzeichen), Sätzen und Absätzen inklusive geschätzter Lese- und Sprechzeit.",
-    "applicationCategory": "UtilitiesApplication",
+    "applicationCategory": "TextEditor",
     "operatingSystem": "All",
     "offers": {
       "@type": "Offer",
@@ -190,13 +213,13 @@
         "@type": "ListItem",
         "position": 1,
         "name": "Startseite",
-        "item": "/de/"
+        "item": "https://textzen.globalcorehub.com/de/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Alle Werkzeuge",
-        "item": "/de/#tools-grid"
+        "item": "https://textzen.globalcorehub.com/de/#tools-grid"
       },
       {
         "@type": "ListItem",
@@ -214,20 +237,20 @@
         <script>
         window.showToast = function(msg) {
             const toast = document.createElement('div');
-            toast.className = 'fixed bottom-6 right-6 z-50 bg-[#160e2b] text-[#c084fc] border border-[#c084fc] font-mono text-xs px-4 py-2 rounded-lg shadow-[0_0_15px_rgba(192,132,252,0.3)] flex items-center space-x-2';
-            toast.innerHTML = '<span>✦</span><span>' + msg + '</span>';
+            toast.className = 'fixed bottom-6 right-6 z-50 bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-sm px-5 py-3 rounded-xl shadow-xl font-medium transition-all duration-300 transform translate-y-0';
+            toast.textContent = msg;
             document.body.appendChild(toast);
-            setTimeout(() => toast.remove(), 2500);
+            setTimeout(() => { toast.classList.add('opacity-0', 'translate-y-2'); setTimeout(() => toast.remove(), 300); }, 2200);
         };
         </script>
         
 </head>
-<body class="bg-[#0b0716] text-[#e9d5ff] min-h-screen flex flex-col transition-colors duration-200">
+<body class="bg-[#fafaf9] dark:bg-[#0f172a] text-[#1c1917] dark:text-[#f8fafc] min-h-screen flex flex-col transition-colors duration-200">
 
   
 
   <!-- Header Navigation (Responsive Desktop & Mobile) -->
-  <header class="sticky top-0 z-50 bg-[#160e2b]/90 backdrop-blur-xl border-b border-[#3b1d68]">
+  <header class="sticky top-0 z-50 bg-white/80 dark:bg-[#0f172a]/80 backdrop-blur-lg border-b border-[#e7e5e4] dark:border-[#334155]">
     <div class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
       
       <!-- Brand & Terminal Indicator -->
@@ -235,7 +258,7 @@
         
 
         <a href="/de/" class="flex items-center space-x-2.5 sm:space-x-3 group">
-          <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-lg flex items-center justify-center font-black text-base sm:text-lg bg-[#c084fc] hover:bg-[#a855f7] text-[#0b0716] font-extrabold shadow-[0_0_20px_rgba(192,132,252,0.4)]">
+          <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-lg flex items-center justify-center font-black text-base sm:text-lg bg-[#0f172a] hover:bg-[#334155] dark:bg-[#2563eb] dark:hover:bg-[#1d4ed8] text-white font-semibold">
             T
           </div>
           <span class="text-base sm:text-lg font-extrabold tracking-tight truncate max-w-[150px] sm:max-w-none">
@@ -258,7 +281,7 @@
           </button>
 
           <!-- Dropdown Panel (Categorized & Compact) -->
-          <div id="tools-dropdown-panel" class="hidden absolute left-0 mt-1.5 w-72 sm:w-80 rounded-2xl bg-[#160e2b] border border-[#3b1d68] hover:border-[#c084fc] shadow-[0_4px_25px_rgba(192,132,252,0.15)] shadow-2xl z-50 p-2 font-mono text-xs backdrop-blur-xl">
+          <div id="tools-dropdown-panel" class="hidden absolute left-0 mt-1.5 w-72 sm:w-80 rounded-2xl bg-white dark:bg-[#1e293b] border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] shadow-[0_2px_12px_rgba(0,0,0,0.04)] dark:shadow-none shadow-2xl z-50 p-2 font-mono text-xs backdrop-blur-xl">
             <div class="flex items-center justify-between px-2.5 py-1 text-[10px] uppercase tracking-wider opacity-50 border-b border-white/10 mb-1">
               <span>Entwickler-Werkzeuge Index</span>
               <span>6 Alle Werkzeuge</span>
@@ -315,7 +338,7 @@
               
             </div>
             <div class="mt-1.5 pt-1.5 border-t border-white/10 px-2 flex items-center justify-between">
-              <a href="/de/#tools-grid" class="text-[11px] font-bold hover:underline flex items-center space-x-1" style="color: #c084fc">
+              <a href="/de/#tools-grid" class="text-[11px] font-bold hover:underline flex items-center space-x-1" style="color: #2563eb">
                 <span>Gesamtes Verzeichnis</span>
                 <span>&rarr;</span>
               </a>
@@ -335,24 +358,24 @@
       <!-- Action Items & Language Selector & Quick Search & Mobile Hamburger -->
       <div class="flex items-center space-x-2 sm:space-x-3">
         <!-- Quick Search Trigger in Header -->
-        <button id="global-search-btn" type="button" class="flex items-center space-x-1.5 px-2.5 py-1.5 rounded-lg border border-[#3b1d68] hover:border-[#c084fc] bg-black/15 hover:bg-black/30 text-xs font-mono opacity-80 hover:opacity-100 transition" title="Werkzeuge nach Stichwort, Format oder Einsatzzweck filtern... (Taste / drücken)">
+        <button id="global-search-btn" type="button" class="flex items-center space-x-1.5 px-2.5 py-1.5 rounded-lg border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] bg-black/15 hover:bg-black/30 text-xs font-mono opacity-80 hover:opacity-100 transition" title="Werkzeuge nach Stichwort, Format oder Einsatzzweck filtern... (Taste / drücken)">
           <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
           </svg>
           <span class="hidden sm:inline opacity-70">Suchen</span>
-          <kbd class="hidden sm:inline text-[9px] px-1 py-0.5 rounded border border-[#3b1d68] hover:border-[#c084fc] opacity-50 bg-black/20 font-mono">Ctrl+K</kbd>
+          <kbd class="hidden sm:inline text-[9px] px-1 py-0.5 rounded border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] opacity-50 bg-black/20 font-mono">Ctrl+K</kbd>
         </button>
 
         <!-- Interactive Multi-Theme Selector Dropdown -->
         <div class="relative inline-block text-left" id="theme-selector-container">
-          <button id="theme-toggle-btn" type="button" class="inline-flex items-center space-x-1.5 px-2.5 py-1.5 rounded-lg text-xs font-mono border border-[#3b1d68] hover:border-[#c084fc] hover:opacity-90 transition bg-black/20" title="Design-Stil">
+          <button id="theme-toggle-btn" type="button" class="inline-flex items-center space-x-1.5 px-2.5 py-1.5 rounded-lg text-xs font-mono border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] hover:opacity-90 transition bg-black/20" title="Design-Stil">
             <span id="theme-current-icon" class="text-sm leading-none">🖤</span>
             <span id="theme-current-name" class="hidden xl:inline text-xs font-medium">Terminal Schwarz</span>
             <svg class="w-3 h-3 opacity-60 ml-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
           </button>
-          <div id="theme-dropdown-menu" class="hidden absolute right-0 mt-2 w-48 rounded-xl bg-[#160e2b] border border-[#3b1d68] hover:border-[#c084fc] shadow-[0_4px_25px_rgba(192,132,252,0.15)] z-50 py-1.5 font-mono text-xs shadow-2xl backdrop-blur-xl">
+          <div id="theme-dropdown-menu" class="hidden absolute right-0 mt-2 w-48 rounded-xl bg-white dark:bg-[#1e293b] border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] shadow-[0_2px_12px_rgba(0,0,0,0.04)] dark:shadow-none z-50 py-1.5 font-mono text-xs shadow-2xl backdrop-blur-xl">
             <div class="px-3 py-1 text-[10px] uppercase tracking-wider opacity-50 border-b border-white/10 mb-1">
               Design-Stil
             </div>
@@ -389,12 +412,12 @@
 
         <!-- 7-Language International Dropdown -->
         <div class="relative inline-block text-left" id="lang-container">
-          <button id="lang-toggle-btn" type="button" class="inline-flex items-center space-x-1 px-2.5 py-1.5 rounded-lg text-xs font-mono border border-[#3b1d68] hover:border-[#c084fc] hover:opacity-90 transition bg-black/20">
+          <button id="lang-toggle-btn" type="button" class="inline-flex items-center space-x-1 px-2.5 py-1.5 rounded-lg text-xs font-mono border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] hover:opacity-90 transition bg-black/20">
             <span>[DE]</span>
             <span class="font-bold">DE</span>
             <span class="text-[9px] opacity-60">&darr;</span>
           </button>
-          <div id="lang-dropdown-menu" class="hidden absolute right-0 mt-2 w-36 rounded-xl bg-[#160e2b] border border-[#3b1d68] hover:border-[#c084fc] shadow-[0_4px_25px_rgba(192,132,252,0.15)] z-50 py-1.5 font-mono text-xs shadow-2xl">
+          <div id="lang-dropdown-menu" class="hidden absolute right-0 mt-2 w-36 rounded-xl bg-white dark:bg-[#1e293b] border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] shadow-[0_2px_12px_rgba(0,0,0,0.04)] dark:shadow-none z-50 py-1.5 font-mono text-xs shadow-2xl">
             
             <a href="/word-counter-reading-time" class="flex items-center justify-between px-3 py-1.5 hover:bg-white/10 transition opacity-75">
               <span>[EN] English</span>
@@ -435,7 +458,7 @@
         </div>
 
         <!-- Mobile Menu Toggle Button (Visible on mobile <768px) -->
-        <button id="mobile-menu-btn" type="button" class="md:hidden p-2 rounded-lg border border-[#3b1d68] hover:border-[#c084fc] hover:opacity-80 transition flex items-center justify-center bg-black/20" aria-label="Toggle Navigation Menu">
+        <button id="mobile-menu-btn" type="button" class="md:hidden p-2 rounded-lg border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] hover:opacity-80 transition flex items-center justify-center bg-black/20" aria-label="Toggle Navigation Menu">
           <svg id="hamburger-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
@@ -447,45 +470,45 @@
     </div>
 
     <!-- Mobile Collapsible Navigation Menu Drawer -->
-    <div id="mobile-menu" class="hidden md:hidden border-t border-[#3b1d68] bg-[#160e2b]/90 backdrop-blur-xl px-4 pt-3 pb-5 space-y-2 backdrop-blur-lg">
+    <div id="mobile-menu" class="hidden md:hidden border-t border-[#e7e5e4] dark:border-[#334155] bg-white/80 dark:bg-[#0f172a]/80 backdrop-blur-lg px-4 pt-3 pb-5 space-y-2 backdrop-blur-lg">
       <a href="/de/" class="block px-3 py-2 rounded-xl text-sm font-semibold hover:bg-white/10 transition">Startseite</a>
 
       <!-- Mobile Theme Switcher Bar -->
       <div class="py-2 border-b border-white/10 mb-2">
         <div class="text-[10px] uppercase font-mono opacity-50 mb-1.5">Design-Stil</div>
         <div class="grid grid-cols-4 gap-1.5">
-          <button onclick="window.switchTheme('terminal_dev', true)" class="p-1.5 rounded-lg border border-[#3b1d68] hover:border-[#c084fc] bg-black/20 flex flex-col items-center text-[10px] font-mono hover:bg-white/10 transition">
+          <button onclick="window.switchTheme('terminal_dev', true)" title="Terminal Schwarz" class="p-1.5 rounded-lg border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] bg-black/20 flex flex-col items-center text-[10px] font-mono hover:bg-white/10 transition">
             <span class="w-2.5 h-2.5 rounded-full bg-[#10b981] mb-1"></span>
-            <span class="truncate max-w-full">Term</span>
+            <span class="truncate max-w-full">Terminal</span>
           </button>
-          <button onclick="window.switchTheme('cyber_electric', true)" class="p-1.5 rounded-lg border border-[#3b1d68] hover:border-[#c084fc] bg-black/20 flex flex-col items-center text-[10px] font-mono hover:bg-white/10 transition">
+          <button onclick="window.switchTheme('cyber_electric', true)" title="Cyber Neon" class="p-1.5 rounded-lg border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] bg-black/20 flex flex-col items-center text-[10px] font-mono hover:bg-white/10 transition">
             <span class="w-2.5 h-2.5 rounded-full bg-[#38bdf8] mb-1"></span>
-            <span class="truncate max-w-full">Cybe</span>
+            <span class="truncate max-w-full">Cyber</span>
           </button>
-          <button onclick="window.switchTheme('midnight_purple', true)" class="p-1.5 rounded-lg border border-[#3b1d68] hover:border-[#c084fc] bg-black/20 flex flex-col items-center text-[10px] font-mono hover:bg-white/10 transition">
+          <button onclick="window.switchTheme('midnight_purple', true)" title="Mitternachtsviolett" class="p-1.5 rounded-lg border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] bg-black/20 flex flex-col items-center text-[10px] font-mono hover:bg-white/10 transition">
             <span class="w-2.5 h-2.5 rounded-full bg-[#c084fc] mb-1"></span>
-            <span class="truncate max-w-full">Mitt</span>
+            <span class="truncate max-w-full">Violett</span>
           </button>
-          <button onclick="window.switchTheme('swiss_minimal', true)" class="p-1.5 rounded-lg border border-[#3b1d68] hover:border-[#c084fc] bg-black/20 flex flex-col items-center text-[10px] font-mono hover:bg-white/10 transition">
+          <button onclick="window.switchTheme('swiss_minimal', true)" title="Minimalistisch" class="p-1.5 rounded-lg border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] bg-black/20 flex flex-col items-center text-[10px] font-mono hover:bg-white/10 transition">
             <span class="w-2.5 h-2.5 rounded-full bg-[#2563eb] mb-1"></span>
-            <span class="truncate max-w-full">Mini</span>
+            <span class="truncate max-w-full">Minimal</span>
           </button>
         </div>
       </div>
 
       <!-- Quick Search Trigger in Mobile Drawer -->
-      <button id="mobile-search-trigger" type="button" class="w-full flex items-center justify-between px-3 py-2 rounded-xl border border-[#3b1d68] hover:border-[#c084fc] bg-black/20 text-xs font-mono opacity-80">
+      <button id="mobile-search-trigger" type="button" class="w-full flex items-center justify-between px-3 py-2 rounded-xl border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] bg-black/20 text-xs font-mono opacity-80">
         <span class="flex items-center space-x-2">
           <svg class="w-3.5 h-3.5 opacity-60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
           </svg>
           <span>Werkzeuge nach Stichwort, Format oder Einsatzzweck filtern... (Taste / drücken)</span>
         </span>
-        <kbd class="text-[10px] px-1.5 py-0.5 rounded border border-[#3b1d68] hover:border-[#c084fc] opacity-50">/</kbd>
+        <kbd class="text-[10px] px-1.5 py-0.5 rounded border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] opacity-50">/</kbd>
       </button>
 
       <!-- Tools Group in Mobile Drawer -->
-      <div class="pt-2 border-t border-[#3b1d68]">
+      <div class="pt-2 border-t border-[#e7e5e4] dark:border-[#334155]">
         <div class="text-[10px] font-mono uppercase tracking-wider opacity-50 px-3 mb-1">Alle Werkzeuge (6)</div>
         <div class="space-y-1 max-h-60 overflow-y-auto">
           
@@ -544,10 +567,10 @@
 
     
 <div class="max-w-5xl mx-auto">
-  <div class="bg-[#160e2b] rounded-2xl shadow-[0_4px_25px_rgba(192,132,252,0.15)] border border-[#3b1d68] hover:border-[#c084fc] p-4 sm:p-6 md:p-8">
-    <div class="border-b border-[#3b1d68] pb-4 sm:pb-6">
+  <div class="bg-white dark:bg-[#1e293b] rounded-2xl shadow-[0_2px_12px_rgba(0,0,0,0.04)] dark:shadow-none border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] p-4 sm:p-6 md:p-8">
+    <div class="border-b border-[#e7e5e4] dark:border-[#334155] pb-4 sm:pb-6">
       <div class="flex items-center justify-between mb-2 sm:mb-3">
-        <div class="inline-flex items-center px-2 py-0.5 rounded text-[11px] bg-[#c084fc]/15 text-[#c084fc] border border-[#c084fc]/30 font-mono text-xs font-mono">
+        <div class="inline-flex items-center px-2 py-0.5 rounded text-[11px] bg-[#f1f5f9] dark:bg-[#334155] text-[#334155] dark:text-[#94a3b8] font-medium font-mono">
           <span>Wortzähler & Textstatistik Rechner</span>
         </div>
         <span class="text-[10px] sm:text-[11px] font-mono opacity-50">Echtzeit-Analyse von Wörtern, Zeichen und Lesezeit</span>
@@ -558,19 +581,19 @@
 
     <!-- Quick Stats Cards Grid -->
     <div class="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
-      <div class="p-3.5 rounded-xl border border-[#3b1d68] hover:border-[#c084fc] bg-black/5 dark:bg-white/5 text-center">
+      <div class="p-3.5 rounded-xl border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] bg-black/5 dark:bg-white/5 text-center">
         <span class="text-[10px] uppercase font-mono opacity-60">Wörter</span>
         <div id="stat-words-val" class="text-2xl font-black font-mono text-brand mt-1">0</div>
       </div>
-      <div class="p-3.5 rounded-xl border border-[#3b1d68] hover:border-[#c084fc] bg-black/5 dark:bg-white/5 text-center">
+      <div class="p-3.5 rounded-xl border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] bg-black/5 dark:bg-white/5 text-center">
         <span class="text-[10px] uppercase font-mono opacity-60">Zeichen (mit Leerzeichen)</span>
         <div id="stat-chars-val" class="text-2xl font-black font-mono mt-1">0</div>
       </div>
-      <div class="p-3.5 rounded-xl border border-[#3b1d68] hover:border-[#c084fc] bg-black/5 dark:bg-white/5 text-center">
+      <div class="p-3.5 rounded-xl border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] bg-black/5 dark:bg-white/5 text-center">
         <span class="text-[10px] uppercase font-mono opacity-60">Sätze</span>
         <div id="stat-sent-val" class="text-2xl font-black font-mono mt-1">0</div>
       </div>
-      <div class="p-3.5 rounded-xl border border-[#3b1d68] hover:border-[#c084fc] bg-black/5 dark:bg-white/5 text-center">
+      <div class="p-3.5 rounded-xl border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] bg-black/5 dark:bg-white/5 text-center">
         <span class="text-[10px] uppercase font-mono opacity-60">Absätze</span>
         <div id="stat-para-val" class="text-2xl font-black font-mono mt-1">0</div>
       </div>
@@ -578,15 +601,15 @@
 
     <!-- Additional Detailed Metrics -->
     <div class="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-3">
-      <div class="p-3 rounded-xl border border-[#3b1d68] hover:border-[#c084fc] bg-black/5 dark:bg-white/5 flex items-center justify-between font-mono text-xs">
+      <div class="p-3 rounded-xl border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] bg-black/5 dark:bg-white/5 flex items-center justify-between font-mono text-xs">
         <span class="opacity-60">Zeichen (ohne Leerzeichen)</span>
         <span id="stat-nospace-val" class="font-bold">0</span>
       </div>
-      <div class="p-3 rounded-xl border border-[#3b1d68] hover:border-[#c084fc] bg-black/5 dark:bg-white/5 flex items-center justify-between font-mono text-xs">
+      <div class="p-3 rounded-xl border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] bg-black/5 dark:bg-white/5 flex items-center justify-between font-mono text-xs">
         <span class="opacity-60">Geschätzte Lesezeit</span>
         <span id="stat-readtime-val" class="font-bold">0 min</span>
       </div>
-      <div class="p-3 rounded-xl border border-[#3b1d68] hover:border-[#c084fc] bg-black/5 dark:bg-white/5 flex items-center justify-between font-mono text-xs">
+      <div class="p-3 rounded-xl border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] bg-black/5 dark:bg-white/5 flex items-center justify-between font-mono text-xs">
         <span class="opacity-60">Geschätzte Sprechzeit</span>
         <span id="stat-speaktime-val" class="font-bold">0 min</span>
       </div>
@@ -602,11 +625,11 @@
           <button id="btn-clear-wc" class="text-xs text-red-400 hover:underline">Löschen</button>
         </div>
       </div>
-      <textarea id="wc-input" placeholder="Text hier einfügen, um Wortanzahl und Lesezeit zu prüfen..." class="w-full h-56 sm:h-72 p-4 rounded-xl border border-[#3b1d68] hover:border-[#c084fc] bg-black/20 text-xs font-mono focus:outline-none focus:ring-1 focus:ring-emerald-500 resize-y leading-relaxed"></textarea>
+      <textarea id="wc-input" placeholder="Text hier einfügen, um Wortanzahl und Lesezeit zu prüfen..." class="w-full h-56 sm:h-72 p-4 rounded-xl border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] bg-black/20 text-xs font-mono focus:outline-none focus:ring-1 focus:ring-emerald-500 resize-y leading-relaxed"></textarea>
     </div>
 
     <!-- SEO & Content is King Section -->
-    <div class="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-[#3b1d68] grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+    <div class="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-[#e7e5e4] dark:border-[#334155] grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
       <div>
         <h2 class="text-sm sm:text-base font-bold mb-2 sm:mb-2.5">Wortzähler, Zeichenzähler & Lesezeit-Rechner Online</h2>
         <p class="text-xs opacity-75 leading-relaxed mb-4">
@@ -619,22 +642,22 @@
           <li>Check estimated silent reading time (200 WPM) and speech duration (130 WPM).</li>
         </ol>
         <h3 class="text-xs font-bold uppercase tracking-wider opacity-70 mb-2">Target Search Queries</h3>
-        <ul class="space-y-0.5"><li class='flex items-center text-xs opacity-75 py-1 font-mono'><span class='mr-2' style='color:#c084fc'>+</span>wortzaehler online kostenlos</li><li class='flex items-center text-xs opacity-75 py-1 font-mono'><span class='mr-2' style='color:#c084fc'>+</span>zeichen zaehlen online</li><li class='flex items-center text-xs opacity-75 py-1 font-mono'><span class='mr-2' style='color:#c084fc'>+</span>lesezeit berechnen text</li><li class='flex items-center text-xs opacity-75 py-1 font-mono'><span class='mr-2' style='color:#c084fc'>+</span>sprechzeit rechner</li><li class='flex items-center text-xs opacity-75 py-1 font-mono'><span class='mr-2' style='color:#c084fc'>+</span>wieviele woerter hat mein text</li><li class='flex items-center text-xs opacity-75 py-1 font-mono'><span class='mr-2' style='color:#c084fc'>+</span>saetze zaehlen tool</li><li class='flex items-center text-xs opacity-75 py-1 font-mono'><span class='mr-2' style='color:#c084fc'>+</span>zeichen ohne leerzeichen</li><li class='flex items-center text-xs opacity-75 py-1 font-mono'><span class='mr-2' style='color:#c084fc'>+</span>textlaenge pruefen online</li></ul>
+        <ul class="space-y-0.5"><li class='flex items-center text-xs opacity-75 py-1 font-mono'><span class='mr-2' style='color:#2563eb'>+</span>wortzaehler online kostenlos</li><li class='flex items-center text-xs opacity-75 py-1 font-mono'><span class='mr-2' style='color:#2563eb'>+</span>zeichen zaehlen online</li><li class='flex items-center text-xs opacity-75 py-1 font-mono'><span class='mr-2' style='color:#2563eb'>+</span>lesezeit berechnen text</li><li class='flex items-center text-xs opacity-75 py-1 font-mono'><span class='mr-2' style='color:#2563eb'>+</span>sprechzeit rechner</li><li class='flex items-center text-xs opacity-75 py-1 font-mono'><span class='mr-2' style='color:#2563eb'>+</span>wieviele woerter hat mein text</li><li class='flex items-center text-xs opacity-75 py-1 font-mono'><span class='mr-2' style='color:#2563eb'>+</span>saetze zaehlen tool</li><li class='flex items-center text-xs opacity-75 py-1 font-mono'><span class='mr-2' style='color:#2563eb'>+</span>zeichen ohne leerzeichen</li><li class='flex items-center text-xs opacity-75 py-1 font-mono'><span class='mr-2' style='color:#2563eb'>+</span>textlaenge pruefen online</li></ul>
       </div>
       <div>
         <h2 class="text-sm sm:text-base font-bold mb-2 sm:mb-2.5">Häufig Gestellte Fragen & Praxis-Tipps</h2>
         <div class="space-y-2.5">
-          <div class="p-3.5 rounded-xl border border-[#3b1d68] hover:border-[#c084fc] bg-black/5 dark:bg-white/5">
+          <div class="p-3.5 rounded-xl border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] bg-black/5 dark:bg-white/5">
             <h4 class="text-xs font-bold mb-1">How is the reading time estimated?</h4>
             <p class="text-[11px] opacity-70 leading-relaxed">
               Silent reading time is computed based on standard cognitive reading research of approximately 200 to 250 words per minute, while speaking duration assumes an average pace of 130 words per minute.
             </p>
           </div>
-          <div class="p-3.5 rounded-xl border border-[#3b1d68] hover:border-[#c084fc] bg-black/5 dark:bg-white/5">
+          <div class="p-3.5 rounded-xl border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] bg-black/5 dark:bg-white/5">
             <h4 class="text-xs font-bold mb-1">100% Lokaler Datenschutz</h4>
             <p class="text-[11px] opacity-70 leading-relaxed">Ihre Daten verbleiben vollständig im lokalen Browser-Speicher.</p>
           </div>
-          <div class="p-3.5 rounded-xl border border-[#3b1d68] hover:border-[#c084fc] bg-black/5 dark:bg-white/5">
+          <div class="p-3.5 rounded-xl border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] bg-black/5 dark:bg-white/5">
             <h4 class="text-xs font-bold mb-1">Sub-Millisekunden Ausführung</h4>
             <p class="text-[11px] opacity-70 leading-relaxed">Direkte Ausführung über moderne Web-Standards ohne Netzwerklatenz.</p>
           </div>
@@ -743,7 +766,7 @@
   </main>
 
   <!-- Internal Linking Matrix -->
-  <section class="border-t border-[#3b1d68] py-12 px-4 sm:px-6 lg:px-8 opacity-95">
+  <section class="border-t border-[#e7e5e4] dark:border-[#334155] py-12 px-4 sm:px-6 lg:px-8 opacity-95">
     <div class="max-w-7xl mx-auto">
       <div class="flex items-center justify-between mb-6">
         <h3 class="text-sm font-bold uppercase tracking-wider opacity-80 font-mono">
@@ -754,7 +777,7 @@
 
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
         
-        <a href="/de/markdown-live-preview-editor" class="p-3.5 rounded-lg border border-[#3b1d68] hover:border-[#c084fc] bg-[#160e2b] transition group block">
+        <a href="/de/markdown-live-preview-editor" class="p-3.5 rounded-lg border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] bg-white dark:bg-[#1e293b] transition group block">
           <div class="text-xs font-bold truncate group-hover:underline">
             Markdown Live-Editor & HTML-Konverter Online
           </div>
@@ -763,7 +786,7 @@
           </p>
         </a>
         
-        <a href="/de/text-diff-compare-checker" class="p-3.5 rounded-lg border border-[#3b1d68] hover:border-[#c084fc] bg-[#160e2b] transition group block">
+        <a href="/de/text-diff-compare-checker" class="p-3.5 rounded-lg border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] bg-white dark:bg-[#1e293b] transition group block">
           <div class="text-xs font-bold truncate group-hover:underline">
             Text-Differenz & Zeichenketten-Vergleich Online
           </div>
@@ -772,7 +795,7 @@
           </p>
         </a>
         
-        <a href="/de/word-counter-reading-time" class="p-3.5 rounded-lg border border-[#3b1d68] hover:border-[#c084fc] bg-[#160e2b] transition group block">
+        <a href="/de/word-counter-reading-time" class="p-3.5 rounded-lg border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] bg-white dark:bg-[#1e293b] transition group block">
           <div class="text-xs font-bold truncate group-hover:underline">
             Wortzähler, Zeichenzähler & Lesezeit-Rechner Online
           </div>
@@ -781,7 +804,7 @@
           </p>
         </a>
         
-        <a href="/de/case-converter-slug-generator" class="p-3.5 rounded-lg border border-[#3b1d68] hover:border-[#c084fc] bg-[#160e2b] transition group block">
+        <a href="/de/case-converter-slug-generator" class="p-3.5 rounded-lg border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] bg-white dark:bg-[#1e293b] transition group block">
           <div class="text-xs font-bold truncate group-hover:underline">
             Text Groß-/Kleinschreibung Konverter & Slug-Generator
           </div>
@@ -790,7 +813,7 @@
           </p>
         </a>
         
-        <a href="/de/lorem-ipsum-dummy-generator" class="p-3.5 rounded-lg border border-[#3b1d68] hover:border-[#c084fc] bg-[#160e2b] transition group block">
+        <a href="/de/lorem-ipsum-dummy-generator" class="p-3.5 rounded-lg border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] bg-white dark:bg-[#1e293b] transition group block">
           <div class="text-xs font-bold truncate group-hover:underline">
             Lorem Ipsum Generator Online (Absätze, Sätze & HTML-Tags)
           </div>
@@ -799,7 +822,7 @@
           </p>
         </a>
         
-        <a href="/de/text-cleaner-duplicate-remover" class="p-3.5 rounded-lg border border-[#3b1d68] hover:border-[#c084fc] bg-[#160e2b] transition group block">
+        <a href="/de/text-cleaner-duplicate-remover" class="p-3.5 rounded-lg border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] bg-white dark:bg-[#1e293b] transition group block">
           <div class="text-xs font-bold truncate group-hover:underline">
             Text-Bereiniger, Zeilensortierer & Duplikate-Entferner Online
           </div>
@@ -813,10 +836,16 @@
   </section>
 
   <!-- Footer -->
-  <footer class="border-t border-[#3b1d68] py-8 text-center text-xs opacity-75">
+  <footer class="border-t border-[#e7e5e4] dark:border-[#334155] py-8 text-center text-xs opacity-75">
     <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
-      <div>
-        &copy; 2026 <strong>TextZen Studio</strong>. 100% Client-seitige Privatsphäre · Global beschleunigt über Cloudflare Edge.
+      <div class="text-left space-y-1">
+        <div>
+          &copy; 2026 <strong>TextZen Studio</strong>. 100% Client-seitige Privatsphäre · Global beschleunigt über Cloudflare Edge.
+        </div>
+        <div class="text-[11px] opacity-60 font-mono">
+          🔒 100% Lokale Browser-Sandbox: Keine Server-Speicherung, keine Datenübertragung.
+          
+        </div>
       </div>
       <div class="flex space-x-4 font-mono text-[11px]">
         <a href="/sitemap.xml" class="hover:underline">sitemap.xml</a>
@@ -827,7 +856,7 @@
   </footer>
 
   <!-- Floating Back to Top Button -->
-  <button id="back-to-top-btn" type="button" class="fixed bottom-6 right-6 p-2.5 rounded-full bg-[#160e2b] border border-[#3b1d68] hover:border-[#c084fc] shadow-xl opacity-0 pointer-events-none transition-all duration-300 z-40 hover:scale-110 focus:outline-none" aria-label="Back to top" title="Back to top">
+  <button id="back-to-top-btn" type="button" class="fixed bottom-6 right-6 p-2.5 rounded-full bg-white dark:bg-[#1e293b] border border-[#e2e8f0] dark:border-[#334155] hover:border-[#2563eb] shadow-xl opacity-0 pointer-events-none transition-all duration-300 z-40 hover:scale-110 focus:outline-none" aria-label="Back to top" title="Back to top">
     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
     </svg>
@@ -953,7 +982,7 @@
       if (saved && THEME_NAMES[saved]) {
         window.switchTheme(saved, false);
       } else {
-        window.switchTheme('midnight_purple', false);
+        window.switchTheme('swiss_minimal', false);
       }
     } catch (e) {}
 
