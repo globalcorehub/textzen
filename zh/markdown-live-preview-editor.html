@@ -674,7 +674,7 @@
   function parseMarkdown(md) {
     if (!md) return '<p class="opacity-50 text-xs">Preview will appear here as you type...</p>';
     let html = md
-      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+      .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;")
       // Headers
       .replace(/^### (.*$)/gim, '<h3 class="text-base font-bold mt-4 mb-2">$1</h3>')
       .replace(/^## (.*$)/gim, '<h2 class="text-lg font-bold mt-4 mb-2 pb-1 border-b opacity-90">$1</h2>')
@@ -688,7 +688,13 @@
       // Blockquotes
       .replace(/^\> (.*$)/gim, '<blockquote class="border-l-4 border-brand pl-3 italic opacity-80 my-2">$1</blockquote>')
       // Links
-      .replace(/\[([^\]]+)\]\(([^\)]+)\)/gim, '<a href="$2" target="_blank" rel="noopener" class="text-brand underline">$1</a>')
+      .replace(/\[([^\]]+)\]\(([^\)]+)\)/gim, (match, label, url) => {
+        try {
+          const protocol = new URL(url.replace(/&amp;/g, '&'), window.location.href).protocol;
+          if (!['http:', 'https:', 'mailto:'].includes(protocol)) return label;
+          return '<a href="' + url + '" target="_blank" rel="noopener noreferrer" class="text-brand underline">' + label + '</a>';
+        } catch (error) { return label; }
+      })
       // Unordered lists
       .replace(/^\- (.*$)/gim, '<li class="ml-4 list-disc">$1</li>')
       // Paragraphs

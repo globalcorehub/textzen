@@ -706,8 +706,8 @@
       return;
     }
     const ignoreWs = chkWs.checked;
-    const oLines = oText.split('\n');
-    const mLines = mText.split('\n');
+    const oLines = oText ? oText.split('\n') : [];
+    const mLines = mText ? mText.split('\n') : [];
 
     let added = 0;
     let removed = 0;
@@ -726,11 +726,11 @@
         unchanged++;
         html += '<div class="py-0.5 px-2 rounded opacity-75 font-mono flex"><span class="w-8 opacity-30 select-none">' + (i+1) + ' </span><span class="w-4 opacity-40 select-none"> </span><span class="break-all">' + escapeHtml(lineO) + '</span></div>';
       } else {
-        if (normO !== null && (normM === null || !mLines.includes(lineO))) {
+        if (normO !== null) {
           removed++;
           html += '<div class="py-0.5 px-2 rounded bg-red-500/15 text-red-300 font-mono flex"><span class="w-8 opacity-30 select-none">' + (i+1) + ' </span><span class="w-4 text-red-400 font-bold select-none">-</span><span class="break-all">' + escapeHtml(lineO) + '</span></div>';
         }
-        if (normM !== null && (normO === null || !oLines.includes(lineM))) {
+        if (normM !== null) {
           added++;
           html += '<div class="py-0.5 px-2 rounded bg-emerald-500/15 text-emerald-300 font-mono flex"><span class="w-8 opacity-30 select-none">' + (i+1) + ' </span><span class="w-4 text-emerald-400 font-bold select-none">+</span><span class="break-all">' + escapeHtml(lineM) + '</span></div>';
         }
