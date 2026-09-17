@@ -658,6 +658,7 @@
   </div>
 </div>
 
+<script src="/vendor/purify.min.js"></script>
 <script>
 (function() {
   const mdInput = document.getElementById('md-input');
@@ -706,7 +707,13 @@
   function render() {
     const raw = mdInput.value;
     const renderedHtml = parseMarkdown(raw);
-    mdPreview.innerHTML = renderedHtml;
+    mdPreview.innerHTML = DOMPurify.sanitize(renderedHtml, {
+      ALLOWED_TAGS: ['p', 'br', 'h1', 'h2', 'h3', 'pre', 'code', 'strong', 'em', 'blockquote', 'li', 'a'],
+      ALLOWED_ATTR: ['class', 'href', 'target', 'rel'],
+      ALLOW_DATA_ATTR: false,
+      ALLOW_ARIA_ATTR: false,
+      ALLOWED_URI_REGEXP: /^(?:https?:|mailto:|\/(?!\/)|#)/i
+    });
 
     const words = raw.trim() ? raw.trim().split(/\s+/).length : 0;
     const chars = raw.length;

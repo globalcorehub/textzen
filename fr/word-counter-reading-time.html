@@ -693,10 +693,13 @@
     const chars = text.length;
     const charsNoSpace = text.replace(/\s/g, '').length;
 
-    // Words count (handles multi-lingual text: latin spaces & CJK characters)
-    const latinWords = text.trim() ? (text.match(/\b[\w'-]+\b/g) || []).length : 0;
-    const cjkChars = (text.match(/[\u4e00-\u9fa5\u3040-\u309f\u30a0-\u30ff]/g) || []).length;
-    const totalWords = latinWords + cjkChars;
+    // Unicode letters/marks; apostrophes and hyphens remain within Latin words.
+    // CJK uses Intl.Segmenter when available; the fallback counts CJK characters.
+    const normalized = text.normalize('NFC');
+    const cjk = /[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}]/u;
+    const totalWords = cjk.test(normalized) && typeof Intl.Segmenter === 'function'
+      ? Array.from(new Intl.Segmenter(document.documentElement.lang, {granularity:'word'}).segment(normalized)).filter(part => part.isWordLike).length
+      : (normalized.match(/[\p{L}\p{M}\p{N}]+(?:['’\-][\p{L}\p{M}\p{N}]+)*/gu) || []).length;
 
     // Sentences
     const sentences = text.trim() ? (text.match(/[^.!?。！？]+[.!?。！？]+(\s|$)/g) || [text]).length : 0;

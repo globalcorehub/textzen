@@ -1,0 +1,6 @@
+const {run}=require('./browser-helper.cjs'),assert=require('node:assert/strict'),fs=require('fs');const results=[];
+function wav(rate){const b=Buffer.alloc(44+rate*2);b.write('RIFF');b.writeUInt32LE(b.length-8,4);b.write('WAVEfmt ',8);b.writeUInt32LE(16,16);b.writeUInt16LE(1,20);b.writeUInt16LE(1,22);b.writeUInt32LE(rate,24);b.writeUInt32LE(rate*2,28);b.writeUInt16LE(2,32);b.writeUInt16LE(16,34);b.write('data',36);b.writeUInt32LE(rate*2,40);return b;}
+const cases={
+textzen:async(p,url,lang)=>{await p.goto(url+'/'+lang+'word-counter-reading-time');for(const [text,n]of [['café naïve élève',3],["l'amour cafe\u0301",2],['hello world',2],['',0]]){await p.locator('#wc-input').fill(text);assert.equal(await p.locator('#stat-words-val').innerText(),String(n));}await p.locator('#wc-input').fill('你好世界');assert(Number(await p.locator('#stat-words-val').innerText())>0);}
+};
+(async()=>{for(const [site,test]of Object.entries(cases)){await run(site,async(p,url,errors)=>{for(const lang of ['','zh/','de/','es/','fr/','ja/','pt/']){await test(p,url,lang);results.push({site,lang,status:'passed'});}assert.deepEqual(errors,[]);});console.log(site,'passed');}})().catch(e=>{console.error(e);process.exitCode=1});
